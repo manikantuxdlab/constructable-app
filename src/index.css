@@ -2,9 +2,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/outfit";
-
+ 
 @custom-variant dark (&:is(.dark *));
-
+ 
 @theme inline {
     --font-heading: var(--font-sans);
     --font-sans: 'Outfit Variable', sans-serif;
@@ -46,77 +46,181 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
-}
 
+    /* Dynamic custom brand & interface colors mapped to variables */
+    --color-brand-gold: var(--brand-gold);
+    --color-brand-gold-hover: var(--brand-gold-hover);
+    --color-brand-gold-light: var(--brand-gold-light);
+    --color-brand-dark-charcoal: var(--brand-dark-charcoal);
+    --color-brand-gray: var(--brand-gray);
+    --color-brand-bg: var(--brand-bg);
+    --color-brand-border: var(--brand-border);
+
+    --color-free-active-bg: var(--free-active-bg);
+    --color-free-active-border: var(--free-active-border);
+    --color-free-active-text: var(--free-active-text);
+    --color-free-inactive-bg: var(--free-inactive-bg);
+    --color-free-inactive-border: var(--free-inactive-border);
+    --color-free-inactive-text: var(--free-inactive-text);
+
+    --color-tab-inactive-bg: var(--tab-inactive-bg);
+    --color-tab-inactive-border: var(--tab-inactive-border);
+    --color-tab-inactive-text: var(--tab-inactive-text);
+
+    --color-outer-bg: var(--outer-bg);
+    --color-outer-border: var(--outer-border);
+
+    --color-quick-rental: var(--quick-rental-bg);
+    --color-quick-safety: var(--quick-safety-bg);
+    --color-listing-secondary: var(--listing-secondary-bg);
+    --color-listing-secondary-hover: var(--listing-secondary-hover-bg);
+
+    --color-facebook: var(--facebook-bg);
+    --color-twitter: var(--twitter-bg);
+    --color-dot-inactive: var(--dot-inactive-bg);
+}
+ 
 :root {
     --background: oklch(1 0 0);
-    --foreground: oklch(0.147 0.004 49.3);
+    --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
-    --card-foreground: oklch(0.147 0.004 49.3);
+    --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.147 0.004 49.3);
-    --primary: oklch(0.553 0.195 38.402);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.6379 0.1905 42.553);
     --primary-foreground: oklch(0.98 0.016 73.684);
     --secondary: oklch(0.967 0.001 286.375);
     --secondary-foreground: oklch(0.21 0.006 285.885);
-    --muted: oklch(0.96 0.002 17.2);
-    --muted-foreground: oklch(0.547 0.021 43.1);
-    --accent: oklch(0.96 0.002 17.2);
-    --accent-foreground: oklch(0.214 0.009 43.1);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.6379 0.1905 42.553);
+    --accent-foreground: oklch(0.98 0.016 73.684);
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0.005 34.3);
-    --input: oklch(0.922 0.005 34.3);
-    --ring: oklch(0.714 0.014 41.2);
-    --chart-1: oklch(0.868 0.007 39.5);
-    --chart-2: oklch(0.547 0.021 43.1);
-    --chart-3: oklch(0.438 0.017 39.3);
-    --chart-4: oklch(0.367 0.016 35.7);
-    --chart-5: oklch(0.268 0.011 36.5);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.837 0.128 66.29);
+    --chart-2: oklch(0.705 0.213 47.604);
+    --chart-3: oklch(0.646 0.222 41.116);
+    --chart-4: oklch(0.6379 0.1905 42.553);
+    --chart-5: oklch(0.5379 0.15 42.553);
     --radius: 0.625rem;
-    --sidebar: oklch(0.986 0.002 67.8);
-    --sidebar-foreground: oklch(0.147 0.004 49.3);
-    --sidebar-primary: oklch(0.646 0.222 41.116);
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.6379 0.1905 42.553);
     --sidebar-primary-foreground: oklch(0.98 0.016 73.684);
-    --sidebar-accent: oklch(0.96 0.002 17.2);
-    --sidebar-accent-foreground: oklch(0.214 0.009 43.1);
-    --sidebar-border: oklch(0.922 0.005 34.3);
-    --sidebar-ring: oklch(0.714 0.014 41.2);
-}
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
 
+    /* Brand variables mapped to the dashboard colors */
+    --brand-gold: var(--primary);
+    --brand-gold-hover: oklch(0.5379 0.15 42.553);
+    --brand-gold-light: oklch(0.97 0.015 42.553);
+    --brand-dark-charcoal: oklch(0.205 0 0);
+    --brand-gray: oklch(0.556 0 0);
+    --brand-bg: var(--background);
+    --brand-border: var(--border);
+
+    /* Custom interface variables for zero-hardcoding */
+    --free-active-bg: oklch(0.55 0.22 25);
+    --free-active-border: oklch(0.55 0.22 25);
+    --free-active-text: oklch(1 0 0);
+    --free-inactive-bg: oklch(0.95 0.02 25);
+    --free-inactive-border: oklch(0.92 0.03 25);
+    --free-inactive-text: oklch(0.60 0.20 25);
+
+    --tab-inactive-bg: oklch(0.957 0.015 50);
+    --tab-inactive-border: oklch(0.88 0.02 50);
+    --tab-inactive-text: oklch(0.45 0.01 50);
+
+    --outer-bg: oklch(0.97 0.008 50);
+    --outer-border: oklch(0.88 0.02 50);
+
+    --quick-rental-bg: oklch(0.25 0.01 50);
+    --quick-safety-bg: oklch(0.45 0.01 50);
+    --listing-secondary-bg: oklch(0.45 0.01 50);
+    --listing-secondary-hover-bg: oklch(0.35 0.01 50);
+
+    --facebook-bg: oklch(0.45 0.12 264);
+    --twitter-bg: oklch(0.68 0.16 244);
+    --dot-inactive-bg: oklch(0.90 0 0);
+
+    --phone-bezel-inner: oklch(0.20 0 0);
+    --phone-bezel-outer: oklch(0.25 0 0);
+}
+ 
 .dark {
-    --background: oklch(0.147 0.004 49.3);
-    --foreground: oklch(0.986 0.002 67.8);
-    --card: oklch(0.214 0.009 43.1);
-    --card-foreground: oklch(0.986 0.002 67.8);
-    --popover: oklch(0.214 0.009 43.1);
-    --popover-foreground: oklch(0.986 0.002 67.8);
-    --primary: oklch(0.47 0.157 37.304);
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.5379 0.15 42.553);
     --primary-foreground: oklch(0.98 0.016 73.684);
     --secondary: oklch(0.274 0.006 286.033);
     --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.268 0.011 36.5);
-    --muted-foreground: oklch(0.714 0.014 41.2);
-    --accent: oklch(0.268 0.011 36.5);
-    --accent-foreground: oklch(0.986 0.002 67.8);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.5379 0.15 42.553);
+    --accent-foreground: oklch(0.98 0.016 73.684);
     --destructive: oklch(0.704 0.191 22.216);
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.547 0.021 43.1);
-    --chart-1: oklch(0.868 0.007 39.5);
-    --chart-2: oklch(0.547 0.021 43.1);
-    --chart-3: oklch(0.438 0.017 39.3);
-    --chart-4: oklch(0.367 0.016 35.7);
-    --chart-5: oklch(0.268 0.011 36.5);
-    --sidebar: oklch(0.214 0.009 43.1);
-    --sidebar-foreground: oklch(0.986 0.002 67.8);
-    --sidebar-primary: oklch(0.705 0.213 47.604);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.837 0.128 66.29);
+    --chart-2: oklch(0.705 0.213 47.604);
+    --chart-3: oklch(0.646 0.222 41.116);
+    --chart-4: oklch(0.6379 0.1905 42.553);
+    --chart-5: oklch(0.5379 0.15 42.553);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.5379 0.15 42.553);
     --sidebar-primary-foreground: oklch(0.98 0.016 73.684);
-    --sidebar-accent: oklch(0.268 0.011 36.5);
-    --sidebar-accent-foreground: oklch(0.986 0.002 67.8);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.547 0.021 43.1);
-}
+    --sidebar-ring: oklch(0.556 0 0);
 
+    /* Brand variables mapped to the dashboard colors */
+    --brand-gold: var(--primary);
+    --brand-gold-hover: oklch(0.6379 0.1905 42.553);
+    --brand-gold-light: oklch(0.25 0.05 42.553);
+    --brand-dark-charcoal: oklch(0.145 0 0);
+    --brand-gray: oklch(0.708 0 0);
+    --brand-bg: var(--background);
+    --brand-border: var(--border);
+
+    /* Custom interface variables for zero-hardcoding */
+    --free-active-bg: oklch(0.55 0.22 25);
+    --free-active-border: oklch(0.55 0.22 25);
+    --free-active-text: oklch(1 0 0);
+    --free-inactive-bg: oklch(0.25 0.08 25);
+    --free-inactive-border: oklch(0.32 0.10 25);
+    --free-inactive-text: oklch(0.75 0.15 25);
+
+    --tab-inactive-bg: oklch(0.18 0.015 50);
+    --tab-inactive-border: oklch(0.28 0.02 50);
+    --tab-inactive-text: oklch(0.72 0.03 50);
+
+    --outer-bg: oklch(0.10 0.005 50);
+    --outer-border: oklch(0.22 0.02 50);
+
+    --quick-rental-bg: oklch(0.18 0.01 50);
+    --quick-safety-bg: oklch(0.35 0.01 50);
+    --listing-secondary-bg: oklch(0.35 0.01 50);
+    --listing-secondary-hover-bg: oklch(0.25 0.01 50);
+
+    --facebook-bg: oklch(0.40 0.10 264);
+    --twitter-bg: oklch(0.60 0.14 244);
+    --dot-inactive-bg: oklch(0.25 0 0);
+
+    --phone-bezel-inner: oklch(0.12 0 0);
+    --phone-bezel-outer: oklch(0.18 0 0);
+}
+ 
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -127,4 +231,47 @@
   html {
     @apply font-sans;
     }
+}
+
+/* Custom Utilities for Layout and Design */
+.phone-shadow {
+  box-shadow: 0 25px 50px -12px oklch(from var(--primary) l c h / 15%), 
+              0 0 40px 0 rgba(0, 0, 0, 0.08),
+              0 0 0 12px var(--phone-bezel-inner), 
+              0 0 0 13px var(--phone-bezel-outer);
+}
+
+.page-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--brand-border);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-gold);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px oklch(from var(--primary) l c h / 15%);
+}
+
+.active-scale:active {
+  transform: scale(0.96);
 }
