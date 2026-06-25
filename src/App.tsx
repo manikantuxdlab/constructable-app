@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronLeft, Star } from "lucide-react"
 import { Routes, Route, Navigate } from "react-router-dom"
 import { useAuth } from "./hooks/useAuth"
@@ -14,9 +14,11 @@ import { AppLayout } from "./layouts/AppLayout"
 import { SupplierDetail } from "./components/SupplierDetail"
 import { MOCK_SUPPLIERS } from "./lib/mockData"
 import { CATEGORIES_MAP } from "./constants"
+import { SplashScreen } from "./components/SplashScreen"
 
 export function App() {
   const { isAuthenticated, loading } = useAuth()
+  const [showSplash, setShowSplash] = useState(true)
   const [showOnboarding, setShowOnboarding] = useState(true)
   const { 
     selectedCategory, 
@@ -26,6 +28,12 @@ export function App() {
     submitQuoteRequest 
   } = useSuppliers()
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false)
+    }, 2200)
+    return () => clearTimeout(timer)
+  }, [])
 
   const categoryDetails = selectedCategory
     ? CATEGORIES_MAP[selectedCategory as keyof typeof CATEGORIES_MAP]
@@ -41,13 +49,8 @@ export function App() {
       {/* Smartphone Container Mock */}
       <div className="w-full h-screen sm:max-w-[365px] sm:h-[780px] bg-background sm:border sm:border-outer-border sm:rounded-2xl sm:shadow-xl overflow-hidden flex flex-col relative z-10">
         
-        {loading ? (
-          <div className="flex-1 flex flex-col justify-center items-center bg-background">
-            <div className="w-8 h-8 border-4 border-[var(--brand-gold)] border-t-transparent rounded-full animate-spin" />
-            <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mt-3 animate-pulse">
-              Loading Session
-            </span>
-          </div>
+        {loading || showSplash ? (
+          <SplashScreen />
         ) : !isAuthenticated && showOnboarding ? (
           <OnboardingPage
             onComplete={() => {
